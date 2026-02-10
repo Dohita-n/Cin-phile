@@ -38,7 +38,7 @@ public class FilmService {
         Map<String, Object> results;
 
         if (query != null && !query.isEmpty()) {
-            results = tmdbService.searchMovies(query, page);
+            results = tmdbService.searchMovies(query, page, annee);
 
             // Enregistrer dans l'historique
             if (utilisateurId != null) {

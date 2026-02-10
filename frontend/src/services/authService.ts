@@ -35,6 +35,22 @@ export const authService = {
     },
 
     /**
+     * Mot de passe oublié
+     */
+    forgotPassword: async (email: string): Promise<string> => {
+        const response = await api.post<string>('/auth/forgot-password', { email });
+        return response.data;
+    },
+
+    /**
+     * Réinitialiser le mot de passe
+     */
+    resetPassword: async (token: string, newPassword: string): Promise<string> => {
+        const response = await api.post<string>('/auth/reset-password', { token, newPassword });
+        return response.data;
+    },
+
+    /**
      * Déconnexion
      */
     logout: () => {
